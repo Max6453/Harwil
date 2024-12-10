@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <link rel="stylesheet" href="./src/output.css">
+    <link rel="icon" type="icon" href="./assets/photos/Harwil-logo.png">
+
+    <script src="https://kit.fontawesome.com/428684f03b.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+    <title> HARWIL | EKO SERVIS</title>
+</head>
+<body>
+      <div x-data="{ open: false }" class="relative h-96">
+        <div style="background-image: url(./assets/photos/background-1920x1080.jpg);
+                background-position:center;
+                background-repeat: no-repeat;
+               background-size: cover;
+            ">
+        <!-- Sidebar -->
+        <div
+          :class="open ? 'translate-x-0' : '-translate-x-full'"
+          class="fixed top-0 left-0 h-full w-1/3 text-4xl bg-gray-800 text-white transform transition-transform duration-300 ease-in-out max-md:text-2xl max-md:w-1/2 max-md:overflow-scroll"
+          id="btn">
+          <button @click="open = false" class="fixed top-4 right-4 text-gray-300 hover:text-white cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          </button>
+          <img src="assets/photos/Harwil-logo.png" class=" py-4 pl-5 pt-4 cursor-pointer" onclick="window.location.reload()">
+          <ul class="space-y-2 p-4 py-6 md:w-full max-md:top-5 max-md:text-3xl">
+            <li><a href="#" class="block py-2 px-4 rounded hover:bg-gray-700">O nás</a></li>
+            <li><a href="#" class="block py-2 px-4 rounded hover:bg-gray-700">Služby</a></li>
+            <li><a href="#" class="block py-2 px-4 rounded hover:bg-gray-700">Poháre NICKNACK</a></li>
+            <li><a href="#" class="block py-2 px-4 rounded hover:bg-gray-700">Kontakt</a></li>
+          </ul>
+          <hr class="top-1/2">
+          <div class=" grid pt-64 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-md:flex max-md:pt-0">
+            <li class="block">
+              <i class="fa-brands fa-instagram fa-2xs" style="color: #63E6BE;"></i>
+            </li>
+            <li class="block">
+              <i class="fa-brands fa-facebook fa-2xs" style="color: #63E6BE;"></i>
+            </li>
+            <li class="block">
+              <i class="fa-brands fa-youtube fa-2xs" style="color: #63E6BE;"></i>
+            </li>
+            <li class="block">
+              <i class="fa-brands fa-tiktok fa-2xs" style="color: #63E6BE;"></i>
+            </li>
+          </div>
+        </div>
+      
+        <!-- Header -->
+        <div class="flex-1 z-50 bg-black">
+          <button @click="open = true" class="m-4  px-4 py-2 top-6 text-black fixed right-0 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:bg-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          </button>
+        </div>
+        <img src="./assets/photos/harwil_230x230.jpg" class=" w-32 fixed justify-center left-10 overflow-hidden -z-50 max-md:left-0 cursor-pointer" onclick="window.location.reload()">
+        <h1 class=" text-6xl top-9 justify-center left-1/4 pl-60 absolute max-md:left-38 max-md:pl-7 max-md:text-5xl -z-50">HARWIL</h1>
+      </div>
+    </div>
+
+
+
+
+
+
+
+        <!-- Footer Section -->
+ <footer class="bg-gray-800 text-gray-300 py-10">
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Services Column -->
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Services</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-white">Web Development</a></li>
+          <li><a href="#" class="hover:text-white">Mobile App Development</a></li>
+          <li><a href="#" class="hover:text-white">Digital Marketing</a></li>
+          <li><a href="#" class="hover:text-white">Consulting</a></li>
+        </ul>
+      </div>
+
+      <!-- Support Column -->
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Support</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-white">FAQ</a></li>
+          <li><a href="#" class="hover:text-white">Help Center</a></li>
+          <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-white">Terms and Conditions</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Media Column -->
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
+        <ul class="flex space-x-4">
+          <li><a href="#" class="hover:text-white"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+          <li><a href="#" class="hover:text-white"><i class="fab fa-twitter"></i> Twitter</a></li>
+          <li><a href="#" class="hover:text-white"><i class="fab fa-instagram"></i> Instagram</a></li>
+          <li><a href="#" class="hover:text-white"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="text-center text-gray-500 mt-10 border-t border-gray-700 pt-4">
+      <p>&copy; HARWIL – eko servis s. r. o. 2024. Všetky práva vyhradené</p>
+    </div>
+  </footer>
+</body>
+</html>
