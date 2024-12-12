@@ -3,76 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
-    <link rel="stylesheet" href="./output.css">
-    <link rel="icon" type="icon" href="./Harwil-logo.png">
+    <link rel="stylesheet" href="./src/output.css">
+    <link rel="icon" type="icon" href="./assets/photos/Harwil-logo.png">
+    <script src="./components/fixedNavbar.js"></script>
+    <script src="./components/carousel.js"></script>
 
     <script src="https://kit.fontawesome.com/428684f03b.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/16.1.3/smooth-scroll.js"
+    integrity="sha512-vfE8OCUETP038fi2pHsLeJC/5xd48FyLsATJLulbdsCRBXgRWxA+0K9he4GClcPjT24vMJk1mFMFbjYS9J7NpA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.3.2/web-animations.min.js"
+    integrity="sha512-oAY57i8MXmaOP7pAylNLnULAM4QLV3uGnvnXVY4zF229/zFzTvG2/5YIgH8iN8oZR2hnbkiDPd4JCJGaH4oG6g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../node_modules/flyonui/flyonui.js"></script>
 
     <title> HARWIL | EKO SERVIS</title>
+    <style>
+      html{
+        scroll-behavior: smooth;
+      }
+    </style>
 </head>
 <body>
-      <div x-data="{ open: false }" class="relative h-96">
-        <div style="background-image: url(./assets/photos/background-1920x1080.jpg);
-                background-position:center;
-                background-repeat: no-repeat;
-               background-size: cover;
-            ">
+      <div x-data="{ open: false }" class="relative h-24">
         <!-- Sidebar -->
         <div
           :class="open ? 'translate-x-0' : '-translate-x-full'"
-          class="fixed top-0 left-0 h-full w-1/3 text-4xl bg-gray-800 text-white transform transition-transform duration-300 ease-in-out max-md:text-2xl max-md:w-1/2 max-md:overflow-scroll"
-          id="btn">
+          class="fixed z-50 top-0 left-0 h-full w-1/3 text-4xl bg-gray-800 text-white transform transition-transform duration-300 ease-in-out max-md:text-2xl max-md:w-1/2 max-md:overflow-scroll"
+          id="navbar">
           <button @click="open = false" class="fixed top-4 right-4 text-gray-300 hover:text-white cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
             </svg>
           </button>
-          <img src="Harwil-logo.png" class=" py-4 pl-5 pt-4 cursor-pointer" onclick="window.location.reload()">
-          <ul class="space-y-2 p-4 py-6 md:w-full max-md:top-5 max-md:text-3xl">
-            <li><a href="#" class="block py-2 px-4 rounded hover:bg-gray-700">O nás</a></li>
-            <li><a href="#" class="block py-2 px-4 rounded hover:bg-gray-700">Služby</a></li>
-            <li><a href="#" class="block py-2 px-4 rounded hover:bg-gray-700">Poháre NICKNACK</a></li>
-            <li><a href="#" class="block py-2 px-4 rounded hover:bg-gray-700">Kontakt</a></li>
+          <img src="assets/photos/Harwil-logo.png" class=" py-4 pl-5 pt-4 cursor-pointer" onclick="window.location.reload()">
+          <ul class="space-y-1 space-x-1 p-4 py-6 md:w-full max-md:top-5 max-md:text-3xl" id="mobile-menu">
+            <li><a href="#About" class="block py-2 px-4 rounded hover:bg-gray-700">O nás</a></li>
+            <li><a href="#Services" class="block py-2 px-4 rounded hover:bg-gray-700">Služby</a></li>
+            <li><a href="#Nicknack" class="block py-2 px-4 rounded hover:bg-gray-700">Poháre NICKNACK</a></li>
+            <li><a href="#Contact" class="block py-2 px-4 rounded hover:bg-gray-700">Kontakt</a></li>
           </ul>
           <hr class="top-1/2">
-          <div class=" grid pt-64 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-md:flex max-md:pt-0">
+          <div class=" grid pt-64 pl-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-md:pt-0 max-md:inline-flex">
             <li class="block">
-              <i class="fa-brands fa-instagram fa-2xs" style="color: #63E6BE;"></i>
+              <a href="https://www.instagram.com/harwil.eko.servis/"><i class="fa-brands fa-instagram fa-2xs" style="color: #63E6BE;"></i></a>
             </li>
             <li class="block">
-              <i class="fa-brands fa-facebook fa-2xs" style="color: #63E6BE;"></i>
+              <a href="https://www.facebook.com/harwil.harwil.5"><i class="fa-brands fa-facebook fa-2xs" style="color: #63E6BE;"></i></a>
             </li>
             <li class="block">
-              <i class="fa-brands fa-youtube fa-2xs" style="color: #63E6BE;"></i>
+              <a href="https://www.youtube.com/@harwilekoservis6354"><i class="fa-brands fa-youtube fa-2xs" style="color: #63E6BE;"></i></a>
             </li>
             <li class="block">
-              <i class="fa-brands fa-tiktok fa-2xs" style="color: #63E6BE;"></i>
+              <i class="fa-brands fa-linkedin fa-2xs" style="color: #63E6BE;"></i>
             </li>
           </div>
         </div>
       
         <!-- Header -->
-        <div class="flex-1 z-50 bg-black">
-          <button @click="open = true" class="m-4  px-4 py-2 top-6 text-black fixed right-0 cursor-pointer">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:bg-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="flex-1  bg-black">
+          <button @click="open = true" class="m-4  px-4 py-2 top-6 text-black fixed right-0 cursor-pointer hover:text-green-500" id="menu-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
             </svg>
           </button>
         </div>
-        <img src="./harwil_230x230.jpg" class=" w-32 fixed justify-center left-10 overflow-hidden -z-50 max-md:left-0 cursor-pointer" onclick="window.location.reload()">
+        <img src="./assets/photos/harwil_230x230.jpg" class=" w-32 relative justify-center left-10 overflow-hidden -z-50 max-md:left-0 cursor-pointer" onclick="window.location.reload()">
         <h1 class=" text-6xl top-9 justify-center left-1/4 pl-60 absolute max-md:left-38 max-md:pl-7 max-md:text-5xl -z-50">HARWIL</h1>
       </div>
-    </div>
 
+      <!--About-->
+      <div class="bg-white py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8 text-center">
+          <div class="mx-auto max-w-2xl lg:text-center">
+          </div>
+            <p class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl lg:text-balance" id="About">
+              HARWIL</p>
+            <p class="mt-6 text-lg/8 text-gray-600">
+              Spoločnosť vám poskytne kompletné riešenie týkajúce sa využitia polypropylénového pohára. Usilujeme sa znížiť množstvo plastových výrobkov na jedno použitie. Našou víziou je svet bez jednorazových plastových predmetov a ambicióznou úlohou zbaviť sa jednorazového plastu. Pripojte sa k nám pri vytváraní sveta bez plastov na jedno použitie.
+            </p>
+          </div>
+          <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+            <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+              <div class="relative pl-16">
+                <dt class="text-base/7 font-semibold text-gray-900">
+                  <div class="absolute left-0 top-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
+                    <svg class="size-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z" />
+                    </svg>
+                  </div>
+                  NAŠE HODNOTY
+                </dt>
+                <dd class="mt-2 text-base/7 text-gray-600">
+                  Hrdo, skromne, pokorne a s rešpektom sa usilujeme stať lídrami vo svojom odvetví a byť vzorom, ako prekonať očakávania, milo prekvapiť a nadchnúť svojich zákazníkov.
+                </dd>
+              </div>
+              <div class="relative pl-16">
+                <dt class="text-base/7 font-semibold text-gray-900">
+                  <div class="absolute left-0 top-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
+                    <svg class="size-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                    </svg>
+                  </div>
+                  INŠPIRÁCIA
+                </dt>
+                <dd class="mt-2 text-base/7 text-gray-600">
+                  Nech si každý nájde svoju vlastnú cestu. Inšpirácia je podnetom na tvorbu. Tvorba je vznik niečoho nového, čo môže ostatným urobiť radosť.
+                </dd>
+              </div>
+              <div class="relative pl-16">
+                <dt class="text-base/7 font-semibold text-gray-900">
+                  <div class="absolute left-0 top-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
+                    <svg class="size-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                    </svg>
+                  </div>
+                  VIEME, AKO
+                </dt>
+                <dd class="mt-2 text-base/7 text-gray-600">
+                  Riešenia sústredíme vždy na celok v širšom kontexte, len tak spolu dosiahneme spokojnosť a úspech.
+                </dd>
+              </div>
+              <div class="relative pl-16">
+                <dt class="text-base/7 font-semibold text-gray-900">
+                  <div class="absolute left-0 top-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
+                    <svg class="size-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0 1 19.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 0 0 4.5 10.5a7.464 7.464 0 0 1-1.15 3.993m1.989 3.559A11.209 11.209 0 0 0 8.25 10.5a3.75 3.75 0 1 1 7.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 0 1-3.6 9.75m6.633-4.596a18.666 18.666 0 0 1-2.485 5.33" />
+                    </svg>
+                  </div>
+                  ZODPOVEDNOSŤ
+                </dt>
+                <dd class="mt-2 text-base/7 text-gray-600">
+                  Láska k športu, ku kultúre, k životnému prostrediu..., skrátka všade tam, kde budete chcieť využiť naše služby
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
 
+              <!--Carousel-->
+              <div class="relative w-full  mx-auto overflow-hidden">
+                <!-- Carousel Wrapper -->
+                <div class="flex transition-transform duration-700" id="carousel">
+                  <!-- Slide 1 -->
+                  <div class="min-w-full bg-blue-500 text-white flex items-center justify-center">
+                    <img src="background-1920x1080.jpg">
+                  </div>
+                  <!-- Slide 2 -->
+                  <div class="min-w-full bg-green-500 text-white flex items-center justify-center">
+                    <img src="background-1920x1080.jpg">
+                  </div>
+                  <!-- Slide 3 -->
+                  <div class="min-w-full bg-red-500 text-white flex items-center justify-center">
+                    <img src="background-1920x1080.jpg">
+                  </div>
+                </div>
+              
+                <!-- Navigation Arrows -->
+                <button id="prev" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">
+                  Prev
+                </button>
+                <button id="next" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">
+                  Next
+                </button>
+              </div>
 
-
+      <!--Partners-->
+      <div class="bg-white py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <h2 class="text-center text-lg/8 font-semibold text-gray-900">Trusted by the world’s most innovative teams</h2>
+          <div class="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+            <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="https://tailwindui.com/plus/img/logos/158x48/transistor-logo-gray-900.svg" alt="Transistor" width="158" height="48">
+            <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="https://tailwindui.com/plus/img/logos/158x48/reform-logo-gray-900.svg" alt="Reform" width="158" height="48">
+            <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="https://tailwindui.com/plus/img/logos/158x48/tuple-logo-gray-900.svg" alt="Tuple" width="158" height="48">
+            <img class="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1" src="https://tailwindui.com/plus/img/logos/158x48/savvycal-logo-gray-900.svg" alt="SavvyCal" width="158" height="48">
+            <img class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1" src="https://tailwindui.com/plus/img/logos/158x48/statamic-logo-gray-900.svg" alt="Statamic" width="158" height="48">
+          </div>
+        </div>
+      </div>
 
 
 
         <!-- Footer Section -->
- <footer class="bg-gray-800 text-gray-300">
+ <footer class="bg-gray-800 text-gray-300 py-10">
     <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       <!-- Services Column -->
       <div>
@@ -97,7 +214,7 @@
       </div>
 
       <!-- Social Media Column -->
-      <div>
+      <div class=" pl-56 max-md:pl-0">
         <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
         <ul class="flex space-x-4">
           <li><a href="#" class="hover:text-white"><i class="fab fa-facebook-f"></i> Facebook</a></li>
