@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
-    <link rel="stylesheet" href="output.css">
-    <link rel="icon" type="icon" href="Harwil-logo.png">
- <script src="https://cdn.tailwindcss.com"></script
-    <script src="fixedNavbar.js"></script>
-    <script src="carousel.js"></script>
+    <link rel="stylesheet" href="./src/output.css">
+    <link rel="icon" type="icon" href="./assets/photos/Harwil-logo.png">
+    <script src="./components/fixedNavbar.js"></script>
+    <script src="./components/carousel.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:ital,wght@0,350;1,350&display=swap" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/428684f03b.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
@@ -22,7 +25,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../node_modules/flyonui/flyonui.js"></script>
 
-    <title> HARWIL | EKO SERVIS</title>
+    <title> HARWIL | EKO SERVIS </title>
     <style>
       html{
         scroll-behavior: smooth;
@@ -30,7 +33,7 @@
     </style>
 </head>
 <body>
-      <div x-data="{ open: false }" class="relative h-24">
+      <div x-data="{ open: false }" class="relative h-24 bg-gradient-to-b from-slate-50 via-gray-50 to-gray-200 font-text">
         <!-- Sidebar -->
         <div
           :class="open ? 'translate-x-0' : '-translate-x-full'"
@@ -66,127 +69,183 @@
         </div>
       
         <!-- Header -->
-        <div class="flex-1  bg-black">
-          <button @click="open = true" class="m-4  px-4 py-2 top-6 text-black fixed right-0 cursor-pointer hover:text-green-500" id="menu-btn">
+        <div class="flex-1 bg-blue-500 z-50">
+          <button @click="open = true" class="m-4  px-4 py-2 top-4 text-black fixed right-0 cursor-pointer hover:text-green-500  z-50" id="menu-btn">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
             </svg>
           </button>
         </div>
-        <img src="harwil_230x230.jpg" class=" w-32 relative justify-center left-10 overflow-hidden max-md:left-0 cursor-pointer" onclick="window.location.reload()">
-        <h1 class=" text-6xl top-9 justify-center left-1/4 pl-60 absolute max-md:left-38 max-md:pl-7 max-md:text-5xl">HARWIL</h1>
+        <img src="./assets/photos/harwil_230x230.jpg" class=" w-24 relative justify-center left-10 overflow-hidden max-md:left-0 cursor-pointer" onclick="window.location.reload()">
+        <!--<h1 class=" text-6xl top-9 justify-center left-1/4 pl-60 absolute max-md:left-38 max-md:pl-7 max-md:text-5xl -z-50">HARWIL</h1>-->
+        <div class="hidden lg:flex lg:gap-x-12 absolute top-10 left-96 pl-32 text-7xl">
+          <a href="#About" class="text-sm/6 font-semibold text-gray-900 hover:text-green-500">O nás</a>
+          <a href="#Services" class="text-sm/6 font-semibold text-gray-900 hover:text-green-500">Služby</a>
+          <a href="#Nicknack" class="text-sm/6 font-semibold text-gray-900 hover:text-green-500">poháre NICKNACK</a>
+          <a href="#Contact" class="text-sm/6 font-semibold text-gray-900 hover:text-green-500">Kontakt</a>
+        </div>
       </div>
-<!--deleted z-index in h1 and img-->
+      <hr>
+
+      <!--button-->
+      <button
+      id="scrollToTopBtn"
+      class="fixed bottom-8 right-8 text-white font-bold py-2 px-4 rounded-full shadow-lg opacity-0 transition-opacity duration-300"
+      style="display: none;"
+    >
+    <i class="fa-solid fa-arrow-up fa-xl" style="color: #74C0FC;"></i>
+    </button>
+  
+    <script>
+      // Select the button
+      const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+  
+      // Show button when scrolling down
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 2000) { // Adjust scrollY value as needed
+          scrollToTopBtn.style.display = 'block';
+          scrollToTopBtn.classList.remove('opacity-0');
+          scrollToTopBtn.classList.add('opacity-100');
+        } else {
+          scrollToTopBtn.classList.add('opacity-0');
+          setTimeout(() => (scrollToTopBtn.style.display = 'none'), 300); // Matches transition duration
+        }
+      });
+  
+      // Scroll to top smoothly when button is clicked
+      scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      });
+    </script>
       <!--About-->
-      <div class="bg-white py-24 sm:py-32">
+      <div class="bg-gradient-to-br from-green-500 via-green-700 to-gray-700 py-24 sm:py-32 font-text">
         <div class="mx-auto max-w-7xl px-6 lg:px-8 text-center">
           <div class="mx-auto max-w-2xl lg:text-center">
           </div>
-            <p class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl lg:text-balance" id="About">
+            <p class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-green-400 sm:text-5xl lg:text-balance font-header" id="About">
               HARWIL</p>
-            <p class="mt-6 text-lg/8 text-gray-600">
+            <p class="mt-6 text-lg/8 text-white font-text">
               Spoločnosť vám poskytne kompletné riešenie týkajúce sa využitia polypropylénového pohára. Usilujeme sa znížiť množstvo plastových výrobkov na jedno použitie. Našou víziou je svet bez jednorazových plastových predmetov a ambicióznou úlohou zbaviť sa jednorazového plastu. Pripojte sa k nám pri vytváraní sveta bez plastov na jedno použitie.
             </p>
           </div>
           <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
             <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
-              <div class="relative pl-16">
-                <dt class="text-base/7 font-semibold text-gray-900">
-                  <div class="absolute left-0 top-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
-                    <svg class="size-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z" />
-                    </svg>
+              <div class="relative pl-16 bg-gray-500 rounded-xl hover:bg-green-400 hover:text-blue-500 transition-ease-in duration-500 hover:opacity-70 cursor-pointer hover:shadow-lg hover:shadow-blue-400">
+                <dt class="text-base/7 font-semibold text-white font-header">
+                  <div class="absolute left-0 top-0 flex size-10 items-center justify-center rounded-lg ">
+                    <i class="fa-regular fa-lightbulb fa-2xl" style="color: #63E6BE;"></i>
                   </div>
                   NAŠE HODNOTY
                 </dt>
-                <dd class="mt-2 text-base/7 text-gray-600">
+                <dd class="mt-2 text-base/7 text-left text-white font-text">
                   Hrdo, skromne, pokorne a s rešpektom sa usilujeme stať lídrami vo svojom odvetví a byť vzorom, ako prekonať očakávania, milo prekvapiť a nadchnúť svojich zákazníkov.
                 </dd>
               </div>
-              <div class="relative pl-16">
-                <dt class="text-base/7 font-semibold text-gray-900">
-                  <div class="absolute left-0 top-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
-                    <svg class="size-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
-                    </svg>
+              <div class="relative pl-16 bg-gray-500 rounded-xl hover:bg-green-400 hover:text-blue-500 transition-ease-in duration-500 cursor-pointer hover:shadow-lg hover:shadow-blue-400">
+                <dt class="text-base/7 font-semibold text-white">
+                  <div class="absolute left-0 top-0 flex size-10 items-center justify-center rounded-lg font-header">
+                    <i class="fa-solid fa-lungs fa-2xl" style="color: #63E6BE;"></i>
                   </div>
                   INŠPIRÁCIA
                 </dt>
-                <dd class="mt-2 text-base/7 text-gray-600">
+                <dd class="mt-2 text-base/7 text-white font-text">
                   Nech si každý nájde svoju vlastnú cestu. Inšpirácia je podnetom na tvorbu. Tvorba je vznik niečoho nového, čo môže ostatným urobiť radosť.
                 </dd>
               </div>
-              <div class="relative pl-16">
-                <dt class="text-base/7 font-semibold text-gray-900">
-                  <div class="absolute left-0 top-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
-                    <svg class="size-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
-                    </svg>
+              <div class="relative pl-16 bg-gray-500 rounded-xl hover:bg-green-400 hover:text-blue-500 transition-ease-in duration-500 cursor-pointer hover:shadow-lg hover:shadow-blue-400">
+                <dt class="text-base/7 font-semibold text-white">
+                  <div class="absolute left-0 top-0 flex size-10 items-center justify-center rounded-lg font-header">
+                    <i class="fa-solid fa-clipboard-check fa-2xl" style="color: #63E6BE;"></i>
                   </div>
                   VIEME, AKO
                 </dt>
-                <dd class="mt-2 text-base/7 text-gray-600">
+                <dd class="mt-2 text-base/7 text-white font-text">
                   Riešenia sústredíme vždy na celok v širšom kontexte, len tak spolu dosiahneme spokojnosť a úspech.
                 </dd>
               </div>
-              <div class="relative pl-16">
-                <dt class="text-base/7 font-semibold text-gray-900">
-                  <div class="absolute left-0 top-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
-                    <svg class="size-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0 1 19.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 0 0 4.5 10.5a7.464 7.464 0 0 1-1.15 3.993m1.989 3.559A11.209 11.209 0 0 0 8.25 10.5a3.75 3.75 0 1 1 7.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 0 1-3.6 9.75m6.633-4.596a18.666 18.666 0 0 1-2.485 5.33" />
-                    </svg>
+              <div class="relative pl-16 bg-gray-500 rounded-xl hover:bg-green-400 hover:text-blue-500 transition-ease-in duration-500 cursor-pointer hover:shadow-lg hover:shadow-blue-400">
+                <dt class="text-base/7 font-semibold text-white font-header">
+                  <div class="absolute left-0 top-0 flex size-10 items-center justify-center rounded-lg">
+                    <i class="fa-solid fa-calendar-days fa-2xl" style="color: #63E6BE;"></i>
                   </div>
                   ZODPOVEDNOSŤ
                 </dt>
-                <dd class="mt-2 text-base/7 text-gray-600">
+                <dd class="mt-2 text-base/7 text-white font-text">
                   Láska k športu, ku kultúre, k životnému prostrediu..., skrátka všade tam, kde budete chcieť využiť naše služby
                 </dd>
               </div>
             </dl>
           </div>
         </div>
-
+        <div class="from-green-400 to-green-700">
               <!--Carousel-->
-              <div class="relative w-full  mx-auto min-h-full overflow-hidden">
+              <div class="relative w-full  mx-auto overflow-hidden bg-green-400" id="Services">
+                <h1 class="absolute justify-center left-80 pl-40 text-gray-500 text-6xl font-header">Služby Harwil</h1>
                 <!-- Carousel Wrapper -->
                 <div class="flex transition-transform duration-700" id="carousel">
                   <!-- Slide 1 -->
-                  <div class="min-w-full bg-blue-500 text-white flex items-center justify-center">
-                    <img src="background-1920x1080.jpg">
+                  <div class="min-w-full text-white flex items-center justify-center">
+                    <img src="./assets/photos/background-1920x1080.jpg">
+                    <div class="absolute left-0 pl-14 pt-64 top-1/4 ">
+                      <h2 class="text-6xl font-header">Výhodný prenájom</h2>
+                      <p class="w-96 justify-center text-center pt-10 text-xl font-text">
+                        Od nás si teraz môže dať drink každý. Nie je nič jednoduchšie, ako si pohár prenajať − či už transparentný, alebo s naším logom. Môžete ušetriť čas na nákup, prepravu a čistenie jednorazových pohárov. Zároveň sa budete odlišovať!
+                      </p>
+                    </div>
                   </div>
                   <!-- Slide 2 -->
-                  <div class="min-w-full bg-green-500 text-white flex items-center justify-center">
-                    <img src="background-1920x1080.jpg">
+                  <div class="min-w-full text-white flex items-center justify-center">
+                    <img src="./assets/photos/background-1920x1080.jpg">
+                    <div class="absolute pl-14 pt-64 top-1/4 font-header">Spoľahlivá logistika</div>
                   </div>
                   <!-- Slide 3 -->
-                  <div class="min-w-full bg-red-500 text-white flex items-center justify-center">
-                    <img src="background-1920x1080.jpg">
+                  <div class="min-w-full text-white flex items-center justify-center">
+                    <img src="./assets/photos/87452078_110440163903426_244634040030724096_n.jpg">
                   </div>
                 </div>
               
                 <!-- Navigation Arrows -->
                 <button id="prev" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">
-                  Prev
+                  <i class="fa-solid fa-arrow-left"></i>
                 </button>
                 <button id="next" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">
-                  Next
+                  <i class="fa-solid fa-arrow-right"></i>
                 </button>
               </div>
 
       <!--Partners-->
-      <div class="bg-white py-24 sm:py-32">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-          <h2 class="text-center text-lg/8 font-semibold text-gray-900">Trusted by the world’s most innovative teams</h2>
-          <div class="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-            <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="https://tailwindui.com/plus/img/logos/158x48/transistor-logo-gray-900.svg" alt="Transistor" width="158" height="48">
-            <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="https://tailwindui.com/plus/img/logos/158x48/reform-logo-gray-900.svg" alt="Reform" width="158" height="48">
-            <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="https://tailwindui.com/plus/img/logos/158x48/tuple-logo-gray-900.svg" alt="Tuple" width="158" height="48">
-            <img class="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1" src="https://tailwindui.com/plus/img/logos/158x48/savvycal-logo-gray-900.svg" alt="SavvyCal" width="158" height="48">
-            <img class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1" src="https://tailwindui.com/plus/img/logos/158x48/statamic-logo-gray-900.svg" alt="Statamic" width="158" height="48">
+      <div class="py-24 sm:py-32 bg-gradient-to-br from-green-400 to-green-700">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8 pb-20">
+          <h2 class="text-center text-2xl font-semibold text-gray-900 pb-32 font-header">Partner</h2>
+          <div class="mx-auto mt-4 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+            <a href="https://www.nicknack.cz">
+              <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1 absolute left-0" src="./assets/photos/nicknack_logo.svg" alt="Nicknack" width="158" height="48">
+            </a>
           </div>
         </div>
+        <h2 class="text-center text-2xl font-semibold text-gray-900 mt-10 font-header">Náš servis vyskúšali aj</h2>
+          <div class="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+            <a href="https://zilina.sk">
+              <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="./assets/photos/logo-alt.svg" alt="Transistor" width="158" height="48">
+            </a>
+            <a href="https://eshop.pivovarsvijany.cz/?utm_source=google&utm_medium=cpc&gad_source=1&gclid=Cj0KCQiA0--6BhCBARIsADYqyL_uBmz6lOEGHpuYXXnE2_3w_L5r3JFnCy56iqtNuQ6cFNi_RdM2T88aApDoEALw_wcB">
+              <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="./assets/photos/svijany-logo-2.webp" alt="Reform" width="158" height="48">
+            </a>
+            <a href="https://www.rajec.sk">
+              <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="./assets/photos/logo-rajec.png" alt="Tuple" width="158" height="48">
+            </a>
+            <a href="https://www.saris.sk">
+              <img class="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1" src="./assets/photos/logo-saris.svg" alt="SavvyCal" width="158" height="48">
+            </a>
+            <a href="https://www.nove-mesto.sk">
+              <img class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1" src="./assets/photos/logo-nm.png" alt="Statamic" width="158" height="48">
+            </a>
+          </div>
       </div>
-
+    </div>
 
 
         <!-- Footer Section -->
